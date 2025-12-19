@@ -37,7 +37,14 @@ function jumpToScreen(screenIndex) {
     screens[currentScreen].classList.add('active');
     
     updateNavigation();
-    toggleNavMenu(); // Close menu after selection
+    
+    // Always close menu when navigating
+    const navMenu = document.getElementById('navMenu');
+    const navOverlay = document.getElementById('nav-overlay');
+    navMenu.classList.remove('active');
+    if (navOverlay) {
+        navOverlay.classList.remove('active');
+    }
     
     // Reset photo reveal if jumping to different screen
     if (screenIndex !== 3) {
@@ -180,5 +187,3 @@ musicToggle.addEventListener('click', function() {
         musicToggle.classList.remove('playing');
     }
 });
-
-
