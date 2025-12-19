@@ -115,7 +115,7 @@ function revealPhoto() {
 // Open WhatsApp with prefilled message
 function openWhatsApp() {
     const message = encodeURIComponent("<3");
-    const phoneNumber = "+0109507802"; // Change this to the actual phone number
+    const phoneNumber = "+60109507802"; // Change this to the actual phone number
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappURL, '_blank');
 }
@@ -180,3 +180,4 @@ musicToggle.addEventListener('click', function() {
         musicToggle.classList.remove('playing');
     }
 });
+
