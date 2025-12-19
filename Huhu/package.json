@@ -1,0 +1,16 @@
+{
+  "name": "confession-app",
+  "version": "1.0.0",
+  "description": "A gentle confession app with interactive storytelling and music",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server"
+  },
+  "keywords": [
+    "confession",
+    "interactive",
+    "storytelling"
+  ],
+  "author": "",
+  "license": "MIT"
+}
