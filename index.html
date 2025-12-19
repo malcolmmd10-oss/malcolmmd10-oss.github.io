@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#fff5f9">
+    <title>A Gentle Confession 💕</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg-decoration">
+        <div class="floating-heart" style="left: 10%; top: 20%; animation-delay: 0s;">❤️</div>
+        <div class="floating-heart" style="left: 80%; top: 60%; animation-delay: 2s;">💕</div>
+        <div class="floating-heart" style="left: 50%; top: 80%; animation-delay: 4s;">💖</div>
+        <div class="floating-heart" style="left: 20%; top: 70%; animation-delay: 3s;">💗</div>
+    </div>
+
+    <div class="container">
+        <div class="screen screen-1 active">
+            <div class="landing-content">
+                <div class="heart-pulse" id="heartTap">❤️</div>
+                <p class="landing-text">Tap Saya :))</p>
+            </div>
+        </div>
+
+        <div class="screen screen-2">
+            <div class="letter-wrapper">
+                <div class="letter-container">
+                    <div class="letter">
+                        <div class="letter-inner">
+                            <div class="letter-seal">✉️</div>
+                            <p class="letter-text">Lama juga saya pikir apa saya mau cakap huhu<br>Sya nda berapa berani bercakap depan-depan jadi saya buat ni website untuk kasitau kau.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn" onclick="nextScreen()">✉️ Tekan Sayaa</button>
+            </div>
+        </div>
+
+        <div class="screen screen-3">
+            <div class="confession-wrapper">
+                <div class="confession-text">
+                    <div class="confession-line">Ada benda saya mau kongsi,</div>
+                    <div class="confession-line">penting ni bagi saya.</div>
+                    <div class="confession-line"></div>
+                    <div class="confession-line">Inda apa bh kn.</div>
+                </div>
+                <button class="btn" onclick="nextScreen()">→ Continue</button>
+            </div>
+        </div>
+
+        <div class="screen screen-4">
+            <div class="photo-wrapper">
+                <p class="photo-text">Sebelum tu,<br><br>Ingat kh ni?</p>
+                <div class="photo-container" id="photoContainer" onclick="revealPhoto()">
+                    <img id="photoImage" src="assets/muahaha.png" alt="A moment that meant something" class="photo-image photo-blur">
+                    <p class="photo-hint">Tap to reveal</p>
+                </div>
+                <div id="photoCaption" class="photo-caption" style="display: none;">
+                    Masi lagi sya ingat tu hari.
+                </div>
+                <button class="btn" onclick="nextScreen()" id="photoBtn" style="display: none;">→ Sambung</button>
+            </div>
+        </div>
+
+        <div class="screen screen-5">
+            <div class="memory-wrapper">
+                <div class="memory-text">
+                    <div class="memory-line">Ada lagi</div>
+                    <div class="memory-line"></div>
+                    <div class="memory-line">Ingat kh time kita d aeropod,</div>
+                    <div class="memory-line">time kita tingu urang lumba moto.</div>
+                    <div class="memory-line"></div>
+                    <div class="memory-line">Biasa sja tapi ckup bermakna bagi sya.</div>
+                </div>
+                <button class="btn" onclick="nextScreen()">→ Cepattt</button>
+            </div>
+        </div>
+
+        <div class="screen screen-6">
+            <div class="confession-wrapper">
+                <div class="confession-text">
+                    <div class="confession-line">Jess, sebenarnya saya ada perasaan sama kau. Saya pun nda pasti bila ni mula jadi, tapi saya rasa lebih baik saya terus terang.</div>
+                    <div class="confession-line">Saya ndak expect apa-apa, sma sya tda niat mau paksa kau balas perasaan saya.</div>
+                    <div class="confession-line">Tapi saya rasakn, bagus sya tanya daripada saya menyesal.</div>
+                    <div class="confession-line">Lagi pun mau new year sudakn. Apa yang jadi tahun ni, saya mo lepaskan. Tahun depan saya mau start fresh.</div>
+                </div>
+                <button class="btn" onclick="nextScreen()">→ Last</button>
+            </div>
+        </div>
+
+        <div class="screen screen-7">
+            <div class="ending-wrapper">
+                <p class="ending-text">Jess, apa saja jawapan kau nanti, jujur seja ah.<br><br>Saya terima sja.</p>
+                <p class="ending-text" style="font-size: 13px; color: #a17fa1;">Thank you ah,<br>sebab bagi saya masa.</p>
+                <div class="ending-buttons">
+                    <button class="ending-btn" onclick="openWhatsApp()">💌 Reply</button>
+                    <button class="ending-btn secondary" onclick="closeQuietly()">🌙 Ok bai</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <div id="navMenu" class="nav-menu">
+        <button class="nav-close" onclick="toggleNavMenu()">✕</button>
+        <h3 class="nav-title">Journey</h3>
+        <div class="nav-list">
+            <button class="nav-item" onclick="jumpToScreen(0)">❤️ Takan saya</button>
+            <button class="nav-item" onclick="jumpToScreen(1)">✉️ Intro saya</button>
+            <button class="nav-item" onclick="jumpToScreen(2)">💭 Yg pertama</button>
+            <button class="nav-item" onclick="jumpToScreen(3)">📸 Waaaa</button>
+            <button class="nav-item" onclick="jumpToScreen(4)">🚗 Aeropod</button>
+            <button class="nav-item" onclick="jumpToScreen(5)">💗 Hihi</button>
+            <button class="nav-item" onclick="jumpToScreen(6)">🌙 Last</button>
+        </div>
+    </div>
+
+    <!-- Floating Menu Button -->
+    <button id="navToggle" class="nav-toggle" onclick="toggleNavMenu()" title="Navigation">☰</button>
+
+    <!-- Progress Dots -->
+    <div class="progress-dots">
+        <button class="dot" onclick="jumpToScreen(0)" data-screen="0"></button>
+        <button class="dot" onclick="jumpToScreen(1)" data-screen="1"></button>
+        <button class="dot" onclick="jumpToScreen(2)" data-screen="2"></button>
+        <button class="dot" onclick="jumpToScreen(3)" data-screen="3"></button>
+        <button class="dot" onclick="jumpToScreen(4)" data-screen="4"></button>
+        <button class="dot" onclick="jumpToScreen(5)" data-screen="5"></button>
+        <button class="dot" onclick="jumpToScreen(6)" data-screen="6"></button>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div class="nav-arrows">
+        <button class="arrow-btn" onclick="previousScreen()" title="Previous">←</button>
+        <button class="arrow-btn" onclick="nextScreen()" title="Next">→</button>
+    </div>
+
+    <!-- Music Control -->
+    <button class="music-control" id="musicToggle" title="Toggle music">🎵</button>
+
+    <!-- Audio Element -->
+    <audio id="bgMusic" loop></audio>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

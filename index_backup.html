@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#fff5f9">
+    <title>A Gentle Confession 💕</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Decoration -->
+    <div class="bg-decoration">
+        <div class="floating-heart" style="left: 10%; top: 20%; animation-delay: 0s;">❤️</div>
+        <div class="floating-heart" style="left: 80%; top: 60%; animation-delay: 2s;">💕</div>
+        <div class="floating-heart" style="left: 50%; top: 80%; animation-delay: 4s;">💖</div>
+        <div class="floating-heart" style="left: 20%; top: 70%; animation-delay: 3s;">💗</div>
+    </div>
+
+    <div class="container">
+        <!-- SCREEN 1: Landing -->
+        <div class="screen screen-1 active">
+            <div class="landing-content">
+                <div class="heart-pulse" id="heartTap">❤️</div>
+                <p class="landing-text">Tap the heart</p>
+            </div>
+        </div>
+
+        <!-- SCREEN 2: Letter Appears -->
+        <div class="screen screen-2">
+            <div class="letter-wrapper">
+                <div class="letter-container">
+                    <div class="letter">
+                        <div class="letter-inner">
+                            <div class="letter-seal">✉️</div>
+                            <p class="letter-text">This is something<br>I couldn't say out loud.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn" onclick="nextScreen()">✉️ Open the letter</button>
+            </div>
+        </div>
+
+        <!-- SCREEN 3: First Message -->
+        <div class="screen screen-3">
+            <div class="confession-wrapper">
+                <div class="confession-text">
+                    <div class="confession-line">I made this quietly,</div>
+                    <div class="confession-line">because some things matter to me.</div>
+                    <div class="confession-line"></div>
+                    <div class="confession-line">Please take this at your own pace.</div>
+                </div>
+                <button class="btn" onclick="nextScreen()">→ Continue</button>
+            </div>
+        </div>
+
+        <!-- SCREEN 4: Photo Reveal -->
+        <div class="screen screen-4">
+            <div class="photo-wrapper">
+                <p class="photo-text">Before I say more…<br><br>I want to share something small.</p>
+                <div class="photo-container" id="photoContainer" onclick="revealPhoto()">
+                    <img id="photoImage" src="assets/muahaha.png" alt="A moment that meant something" class="photo-image photo-blur">
+                    <p class="photo-hint">Tap to reveal</p>
+                </div>
+                <div id="photoCaption" class="photo-caption" style="display: none;">
+                    I remember how calm that day felt.
+                </div>
+                <button class="btn" onclick="nextScreen()" id="photoBtn" style="display: none;">→ Continue</button>
+            </div>
+        </div>
+
+
+        <!-- SCREEN 5: Aeropod Moment -->
+        <div class="screen screen-5">
+            <div class="memory-wrapper">
+                <div class="memory-text">
+                    <div class="memory-line">There was a quiet moment too…</div>
+                    <div class="memory-line"></div>
+                    <div class="memory-line">We sat together at the back of the car trunk at Aeropod,</div>
+                    <div class="memory-line">watching people motor racing.</div>
+                    <div class="memory-line"></div>
+                    <div class="memory-line">It felt simple, calm, and just… ours.</div>
+                </div>
+                <button class="btn" onclick="nextScreen()">→ Continue</button>
+            </div>
+        </div>
+
+        <!-- SCREEN 7: The Honest Part -->
+        <div class="screen screen-6">
+            <div class="confession-wrapper">
+                <div class="confession-text">
+                    <div class="confession-line">I like you.</div>
+                    <div class="confession-line"></div>
+                    <div class="confession-line">Not suddenly.</div>
+                    <div class="confession-line">Not loudly.</div>
+                    <div class="confession-line"></div>
+                    <div class="confession-line">But in the quiet way</div>
+                    <div class="confession-line">where someone slowly becomes important.</div>
+                    <div class="confession-line optional-reveal" id="optionalLine">Some feelings don't need an answer.</div>
+                    <div class="confession-line"></div>
+                    <div class="confession-line">I don't expect anything from you.</div>
+                    <div class="confession-line">I just didn't want to stay silent.</div>
+                </div>
+                <button class="btn" onclick="nextScreen()">→ One last thing</button>
+            </div>
+        </div>
+
+        <!-- SCREEN 8: Respectful Close -->
+        <div class="screen screen-8">
+            <div class="ending-wrapper">
+                <p class="ending-text">Whatever you feel —<br><br>I respect it.</p>
+                <p class="ending-text" style="font-size: 13px; color: #a17fa1;">Thank you for being here,<br>even for a moment.</p>
+                <div class="ending-buttons">
+                    <button class="ending-btn" onclick="openWhatsApp()">💌 Reply to me</button>
+                    <button class="ending-btn secondary" onclick="closeQuietly()">🌙 Close quietly</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <div id="navMenu" class="nav-menu">
+        <button class="nav-close" onclick="toggleNavMenu()">✕</button>
+        <h3 class="nav-title">Journey</h3>
+        <div class="nav-list">
+            <button class="nav-item" onclick="jumpToScreen(0)">❤️ Tap the Heart</button>
+            <button class="nav-item" onclick="jumpToScreen(1)">✉️ Letter Intro</button>
+            <button class="nav-item" onclick="jumpToScreen(2)">💭 First Message</button>
+            <button class="nav-item" onclick="jumpToScreen(3)">📸 Photo Reveal</button>
+            <button class="nav-item" onclick="jumpToScreen(4)">🚗 Aeropod Moment</button>
+            <button class="nav-item" onclick="jumpToScreen(5)">💗 Honest Confession</button>
+            <button class="nav-item" onclick="jumpToScreen(6)">🌙 One Last Thing</button>
+        </div>
+    </div>
+
+    <!-- Floating Menu Button -->
+    <button id="navToggle" class="nav-toggle" onclick="toggleNavMenu()" title="Navigation">☰</button>
+
+    <!-- Progress Dots -->
+    <div class="progress-dots">
+        <button class="dot" onclick="jumpToScreen(0)" data-screen="0"></button>
+        <button class="dot" onclick="jumpToScreen(1)" data-screen="1"></button>
+        <button class="dot" onclick="jumpToScreen(2)" data-screen="2"></button>
+        <button class="dot" onclick="jumpToScreen(3)" data-screen="3"></button>
+        <button class="dot" onclick="jumpToScreen(4)" data-screen="4"></button>
+        <button class="dot" onclick="jumpToScreen(5)" data-screen="5"></button>
+        <button class="dot" onclick="jumpToScreen(6)" data-screen="6"></button>
+        <button class="dot" onclick="jumpToScreen(7)" data-screen="7"></button>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div class="nav-arrows">
+        <button class="arrow-btn" onclick="previousScreen()" title="Previous">←</button>
+        <button class="arrow-btn" onclick="nextScreen()" title="Next">→</button>
+    </div>
+    <button class="music-control" id="musicToggle" title="Toggle music">🎵</button>
+
+    <!-- Audio Element -->
+    <audio id="bgMusic" loop></audio>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
